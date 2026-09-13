@@ -1,0 +1,37 @@
+[
+  {
+    "id": "TC01",
+    "type": "direct_query",
+    "question": "Chào bạn, trợ lý Vinmec có thể hỗ trợ tôi những việc gì khi muốn khám bệnh?",
+    "expected_behavior": "Chatbot trả lời trực tiếp về các khả năng hỗ trợ như tra cứu bác sĩ, lịch làm việc và hướng dẫn đặt lịch; không cần gọi Tool.",
+    "complexity": "Low"
+  },
+  {
+    "id": "TC02",
+    "type": "single_tool_query",
+    "question": "Hãy tra cứu lịch làm việc của bác sĩ Nguyễn Thị Lan, chuyên khoa Tim mạch, tại Vinmec Times City vào ngày 15/09/2026.",
+    "expected_behavior": "Agent nhận diện nhu cầu tra cứu lịch bác sĩ và gọi Tool 'doctor_schedule_query' với tên bác sĩ, chuyên khoa, cơ sở Vinmec và ngày khám phù hợp.",
+    "complexity": "Medium"
+  },
+  {
+    "id": "TC03",
+    "type": "appointment_booking",
+    "question": "Đặt lịch khám Nội tổng quát cho Nguyễn Văn Minh tại Vinmec Central Park lúc 09:00 ngày 16/09/2026, số điện thoại 0901234567.",
+    "expected_behavior": "Agent trích xuất đầy đủ thông tin bệnh nhân, chuyên khoa, cơ sở, thời gian và số điện thoại; sau đó gọi Tool 'book_medical_appointment' để tạo lịch khám và xác nhận mã đặt lịch.",
+    "complexity": "Medium"
+  },
+  {
+    "id": "TC04",
+    "type": "multi_step_reasoning",
+    "question": "Tôi muốn khám Da liễu với bác sĩ Trần Minh Anh ở Vinmec Times City vào sáng 17/09/2026. Hãy kiểm tra lịch bác sĩ và đặt giúp tôi khung giờ trống sớm nhất; tên bệnh nhân là Lê Thu Hà, số điện thoại 0987654321.",
+    "expected_behavior": "Agent thực hiện chuỗi ReAct nhiều bước: gọi 'doctor_schedule_query' để tìm khung giờ trống của bác sĩ, chọn khung giờ buổi sáng sớm nhất, rồi gọi 'book_medical_appointment' với thông tin bệnh nhân và lịch đã xác nhận.",
+    "complexity": "High"
+  },
+  {
+    "id": "TC05",
+    "type": "edge_case_handling",
+    "question": "Hãy tra cứu lịch làm việc của bác sĩ Không Tồn Tại thuộc chuyên khoa Thần kinh tại Vinmec Times City vào ngày 18/09/2026.",
+    "expected_behavior": "Khi Tool trả về NOT_FOUND hoặc không có lịch phù hợp, Agent phản hồi lịch sự, nêu rõ không tìm thấy bác sĩ/lịch theo yêu cầu và đề xuất chọn bác sĩ, cơ sở hoặc thời gian khác; không bịa dữ liệu hay tự tạo lịch hẹn.",
+    "complexity": "Medium"
+  }
+]

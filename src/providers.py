@@ -38,25 +38,25 @@ class MockOfflineProvider(BaseLLMProvider):
         prompt_lower = prompt.lower()
         
         # Mô phỏng nhận diện intent gọi Tool
-        if "sv2026001" in prompt_lower and "đặt lịch" in prompt_lower:
+        if "đặt lịch" in prompt_lower or "dat lich" in prompt_lower:
             return {
                 "type": "tool_call",
-                "tool_name": "schedule_appointment",
-                "arguments": {"student_id": "SV2026001", "datetime_str": "14:00 15/09/2026", "advisor_name": "PGS.TS Nguyễn Văn A"},
-                "thought": "Người dùng yêu cầu đặt lịch hẹn tư vấn cho sinh viên SV2026001. Tôi sẽ gọi tool schedule_appointment."
+                "tool_name": "book_medical_appointment",
+                "arguments": {"patient_name": "Nguyễn Văn Minh", "phone_number": "0901234567", "specialty": "Nội tổng quát", "facility": "Vinmec Central Park", "datetime_str": "09:00 16/09/2026"},
+                "thought": "Người dùng yêu cầu đặt lịch khám. Tôi sẽ gọi tool book_medical_appointment."
             }
-        elif "sv2026001" in prompt_lower or "tra cứu" in prompt_lower:
+        elif "lịch" in prompt_lower or "tra cứu" in prompt_lower or "tra cuu" in prompt_lower:
             return {
                 "type": "tool_call",
-                "tool_name": "academic_query",
-                "arguments": {"student_id": "SV2026001"},
-                "thought": "Người dùng muốn tra cứu thông tin học vụ của sinh viên SV2026001. Tôi sẽ gọi tool academic_query."
+                "tool_name": "doctor_schedule_query",
+                "arguments": {"specialty": "Tim mạch", "facility": "Vinmec Times City", "date": "15/09/2026"},
+                "thought": "Người dùng muốn tra cứu lịch bác sĩ. Tôi sẽ gọi tool doctor_schedule_query."
             }
         else:
             return {
                 "type": "text",
-                "content": f"[Mock Agent Response]: Xin chào! Quy chế học vụ VinUni yêu cầu sinh viên tích lũy tối thiểu 120 tín chỉ và duy trì GPA trên 2.0 để tốt nghiệp.",
-                "thought": "Câu hỏi chung về quy chế học vụ, trả lời trực tiếp không cần gọi Tool."
+                "content": "Xin chào! Tôi có thể tra cứu lịch làm việc bác sĩ chuyên khoa và hỗ trợ đặt lịch khám tại Vinmec.",
+                "thought": "Câu hỏi giới thiệu dịch vụ, trả lời trực tiếp không cần gọi Tool."
             }
 
 

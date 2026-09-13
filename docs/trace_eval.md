@@ -1,8 +1,8 @@
 # 📊 BÁO CÁO THU HOẠCH NGHIỆM THU BÀI LAB 3 (BƯỚC 3 — SUBMISSION ARTIFACT)
 
-> **Họ và Tên Học viên:** [Điền Họ và Tên]  
-> **Mã Sinh Viên / Mã Học viên:** [Điền MSSV]  
-> **Chủ đề Lựa chọn:** [Điền tên chủ đề đã chọn từ docs/DANH_SACH_DE_TAI.md hoặc Đề tài Mở]  
+> **Họ và Tên Học viên:** Đào Ngọc Bình Thiên 
+> **Mã Sinh Viên / Mã Học viên:** 2A202602814  
+> **Chủ đề Lựa chọn:** Trợ lý tư vấn sức khoẻ Vinmec: Tra cứu lịch làm việc bác sĩ chuyên khoa và đặt lịch khám bệnh
 
 ---
 
@@ -10,11 +10,11 @@
 
 | Tiêu chí Đánh giá | Mức độ (1 - 5) | Giải trình chi tiết lý do chọn điểm |
 | :--- | :---: | :--- |
-| **1. Multi-step Reasoning** | / 5 | Bài toán có yêu cầu chia nhỏ nhiều bước suy luận nối tiếp nhau không? |
-| **2. Tool Interaction** | / 5 | Hệ thống có cần kết nối với MCP Server / Cơ sở dữ liệu bên ngoài không? |
-| **3. Dynamic Decision** | / 5 | Bước tiếp theo có phụ thuộc vào kết quả quan sát bước trước không? |
-| **4. Long Horizon Goal** | / 5 | Hệ thống có phải giữ mục tiêu xuyên suốt qua nhiều lượt xử lý không? |
-| **TỔNG ĐIỂM AGENTIC FIT** | **/ 20** | *Nếu tổng điểm > 12/20: Bài toán rất phù hợp triển khai Agentic System.* |
+| **1. Multi-step Reasoning** | 5 / 5 | Yêu cầu đặt lịch thường gồm nhiều bước nối tiếp: xác định chuyên khoa/bác sĩ/cơ sở và thời gian mong muốn, tra cứu lịch làm việc, kiểm tra khung giờ trống, sau đó tạo lịch hẹn và trả về mã xác nhận. |
+| **2. Tool Interaction** | 5 / 5 | Agent cần gọi MCP Tool để truy vấn dữ liệu bác sĩ, chuyên khoa và lịch trống từ cơ sở dữ liệu; khi người dùng xác nhận đủ thông tin, Agent tiếp tục gọi Tool đặt lịch khám. Không thể cung cấp lịch chính xác chỉ bằng tri thức tĩnh của LLM.  |
+| **3. Dynamic Decision** | 5 / 5 | Hành động đặt lịch phụ thuộc trực tiếp vào quan sát từ bước tra cứu lịch. Nếu bác sĩ không làm việc hoặc khung giờ đã kín, Agent phải đề xuất bác sĩ, cơ sở hoặc thời gian thay thế trước khi tiếp tục. |
+| **4. Long Horizon Goal** | 4 / 5 | Agent phải duy trì mục tiêu hoàn tất một lịch khám xuyên suốt nhiều lượt hội thoại, đồng thời ghi nhớ các thông tin đã thu thập như bệnh nhân, chuyên khoa, bác sĩ, cơ sở, thời gian và số điện thoại. Phạm vi phiên làm việc tương đối ngắn nên không cần trạng thái dài hạn phức tạp. |
+| **TỔNG ĐIỂM AGENTIC FIT** | **19 / 20** | *Nếu tổng điểm > 12/20: Bài toán rất phù hợp triển khai Agentic System.* |
 
 ---
 
